@@ -17,6 +17,8 @@
 
   -[for-loops-and-while-loops](#for-loops-and-while-loops)
 
+  -[Declaring-Functions-in-Python](#Declaring-Functions-in-Python)
+
     
 - [Python-is-a-dynamically-typed-language](#python-is-a-dynamically-typed-language)
 - [Concatenating-Strings-with-Other-Data-Types](#Concatenating-Strings-with-Other-Data-Types)
@@ -1046,8 +1048,127 @@ while count > 0:
   - You’re waiting for a condition to become false.
 
 ---
+###  Declaring Functions in Python
+In Python, a **function** is a reusable block of code that performs a specific task. Functions help organize code, reduce repetition, and improve readability.
 
-Would you like a visual flowchart to help decide which loop to use, or a mini project that uses both?
+---
+
+We declare a function using the `def` keyword, followed by the function name and parentheses `()` which may include parameters.
+
+### 📌 Basic Syntax:
+```python
+def function_name(parameters):
+    # code block
+    return result  # optional
+```
+
+---
+
+## ✅ Examples with Output
+
+### 1. **Function Without Parameters**
+
+```python
+def greet():
+    print("Hello, world!")
+
+greet()
+```
+
+**Output:**
+```
+Hello, world!
+```
+
+---
+
+### 2. **Function With Parameters**
+
+```python
+def greet_user(name):
+    print(f"Hello, {name}!")
+
+greet_user("Alice")
+```
+
+**Output:**
+```
+Hello, Alice!
+```
+
+---
+
+### 3. **Function With Return Value**
+
+```python
+def add(a, b):
+    return a + b
+
+result = add(5, 3)
+print(result)
+```
+
+**Output:**
+```
+8
+```
+
+---
+
+### 4. **Function With Default Parameters**
+
+```python
+def greet(name="Guest"):
+    print(f"Welcome, {name}!")
+
+greet()
+greet("Bob")
+```
+
+**Output:**
+```
+Welcome, Guest!
+Welcome, Bob!
+```
+
+---
+
+### 5. **Function With Multiple Return Values**
+
+```python
+def get_stats(numbers):
+    return min(numbers), max(numbers), sum(numbers)
+
+low, high, total = get_stats([3, 7, 2, 9])
+print(low, high, total)
+```
+
+**Output:**
+```
+2 9 21
+```
+
+---
+
+### 6. **Function With Variable Number of Arguments**
+
+```python
+def print_items(*items):
+    for item in items:
+        print(item)
+
+print_items("apple", "banana", "cherry")
+```
+
+**Output:**
+```
+apple
+banana
+cherry
+```
+
+---
+
 
 ---
 
