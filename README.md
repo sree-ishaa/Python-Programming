@@ -21,10 +21,8 @@
 
     
 - [Python-is-a-dynamically-typed-language](#python-is-a-dynamically-typed-language)
-- 
 - [Concatenating-Strings-with-Other-Data-Types](#Concatenating-Strings-with-Other-Data-Types)
-
-- [Python-Behave-JSON in Python-Scenario](#Python-Behave-JSON in Python-Scenario)
+- [Python-Behave-JSON in Python-Scenario](#Python-Behave-JSON-in-Python-Scenario)
 
 
 
@@ -1175,7 +1173,7 @@ cherry
 ---
 
 
-## [Python-Behave-JSON in Python-Scenario]
+## [Python-Behave-JSON-in-Python-Scenario]
 
 it's a little dictionary there! 🐍 To extract the first name and last name from your JSON-like structure in Python, here's how you can do it:
 
