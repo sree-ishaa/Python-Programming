@@ -23,6 +23,7 @@
 - [Python-is-a-dynamically-typed-language](#python-is-a-dynamically-typed-language)
 - [Concatenating-Strings-with-Other-Data-Types](#Concatenating-Strings-with-Other-Data-Types)
 - [Python-Behave-JSON in Python-Scenario](#Python-Behave-JSON-in-Python-Scenario)
+- [executing-steps-inside-other-steps](#executing-steps-inside-other-steps)
 
 
 
@@ -1192,9 +1193,80 @@ print(f"Last Name: {last_name}")
 - I used `.get()` which is safer than direct access like `user_details['First_name']` because it won’t throw an error if the key doesn’t exist.
 - JSON in Python is typically handled using dictionaries, just like your example.
 
-Want to turn this into part of a user registration script or something a little bigger? I’d be glad to help expand it!
+---
+## [executing-steps-inside-other-steps]
+
+The concept explained in [Way2Automation’s article](https://www.way2automation.com/running-steps-inside-other-steps-in-behave/) is about **executing steps inside other steps** in the Behave BDD framework using Python.
+
+### 🔁 Why Run Steps Inside Other Steps?
+Sometimes, multiple scenarios share common steps. Instead of duplicating code, you can **reuse existing step definitions** by calling them from within another step. This keeps your test code clean and maintainable.
 
 ---
+
+### 🧩 How It Works
+
+Behave provides a method called `context.execute_steps()` that lets you run steps programmatically inside another step definition.
+
+#### ✅ Syntax Example:
+```python
+context.execute_steps(u"""
+    Given I am on the login page
+    When I enter valid credentials
+    Then I should be logged in
+""")
+```
+
+- The steps are written as a **multi-line Unicode string**.
+- Behave will execute each line as if it appeared in the feature file.
+
+---
+
+### 📦 Use Cases
+
+1. **Sharing Variables Across Scenarios**  
+   You can define a variable in one step and reuse it in another by calling the original step.
+
+2. **Avoiding Redundant Step Definitions**  
+   If two scenarios perform similar actions (e.g., filling out a form), you can reuse the steps from the first scenario in the second.
+
+3. **Macro Steps**  
+   You can create a "macro" step that internally calls several smaller steps, simplifying your feature files.
+
+---
+
+### 🛠 Example Scenario
+
+**Feature File:**
+```gherkin
+Scenario: Register new user
+  Given I fill in user details
+  When I submit the form
+  Then I should see a success message
+
+Scenario: Register existing user
+  Given I fill in user details
+  When I submit the form
+  Then I should see an error message
+```
+
+**Step Definition for Reuse:**
+```python
+@given("I fill in user details")
+def step_impl(context):
+    context.execute_steps(u"""
+        Given I enter name
+        And I enter email
+        And I enter password
+    """)
+```
+
+---
+
+### 🧠 Pro Tip
+While this technique is powerful, use it judiciously. Overusing `context.execute_steps()` can make debugging harder if steps fail unexpectedly.
+
+Want help refactoring your own Behave steps to use this pattern? I’d love to help streamline your test suite!
+
 
 
 
