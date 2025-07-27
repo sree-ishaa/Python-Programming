@@ -23,6 +23,8 @@
 - [Python-is-a-dynamically-typed-language](#python-is-a-dynamically-typed-language)
 - [Concatenating-Strings-with-Other-Data-Types](#Concatenating-Strings-with-Other-Data-Types)
 
+- [Python-Behave-Scenario-Concepts](#Python-Behave-Scenario-Concepts)
+
 ## Introduction
 
 ## 🐍 Introduction to Python
@@ -1169,6 +1171,26 @@ cherry
 
 ---
 
+## Python Behave Scenario Concepts
+
+it's a little dictionary there! 🐍 To extract the first name and last name from your JSON-like structure in Python, here's how you can do it:
+
+```python
+user_details = {'First_name': 'siri', 'last_name': 'test'}
+
+# Accessing values
+first_name = user_details.get('First_name')
+last_name = user_details.get('last_name')
+
+print(f"First Name: {first_name}")
+print(f"Last Name: {last_name}")
+```
+
+### 🧠 A few notes:
+- I used `.get()` which is safer than direct access like `user_details['First_name']` because it won’t throw an error if the key doesn’t exist.
+- JSON in Python is typically handled using dictionaries, just like your example.
+
+Want to turn this into part of a user registration script or something a little bigger? I’d be glad to help expand it!
 
 ---
 
